@@ -4,12 +4,15 @@ import tkSimpleDialog
 
 
 class Window:
+    
     def __init__(self, master):
-        #self.windowFrame = __init__.Frame(master, width="500", height="600")
         windowFrame = Frame(master, width="500", height="600")
         windowFrame.pack()
         
-        
+        self.profileButton = Button(windowFrame, text="Profiles")
+        self.makerButton = Button(windowFrame, text='Maker')
+        self.optionButton = Button(windowFrame, text='Options')
+        self.plannerButton = Button(windowFrame, text='Planner') 
         
         
         #textField1 = Layout(master, text="Username:  ")
