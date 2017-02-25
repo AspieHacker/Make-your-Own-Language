@@ -33,24 +33,19 @@ class HomePage(Frame):
     def __init__(self,parent,controller):
         Frame.__init__(self,parent)
         label = Label(self,text="Home Page",font=LARGE_FONT)
-        label.pack(padx=10, pady=10)
+        label.pack(padx=10, pady=10)       
+            
+        button3 = Button(text="Profiles",
+            command=lambda: controller.show_frame(ProfilePage))
+        button3.pack()
         
-        
-        button1 = Button(self,text="Maker",
+        button1 = Button(text="Maker",
            command=lambda: controller.show_frame(MakerPage))
         button1.pack()
         
-        button2 = Button(self,text="Planner",
+        button2 = Button(text="Planner",
             command=lambda: controller.show_frame(PlannerPage))
         button2.pack()
-            
-        button3 = Button(self,text="Profiles",
-            command=lambda: controller.show_frame(ProfilePage))
-        button3.pack(side=TOP)
-        
-        button4 = Button(self,text="Quit",
-            command=QUIT)
-        button4.pack(side=BOTTOM)
         
 class MakerPage(Frame):
     def __init__(self,parent,controller):
