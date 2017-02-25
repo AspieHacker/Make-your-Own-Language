@@ -17,7 +17,7 @@ class LanguageMakerApp:
         
         self.frames = {}
         
-        for F in (startPage,PageOne,PageTwo):
+        for F in (HomePage,MakerPage,ProfilePage,PlannerPage):
             frame = F(main,self)
             self.frames[F] = frame
             frame.grid(row=0,column=0,sticky="nsew")
@@ -38,8 +38,19 @@ class HomePage(Frame):
         
         button1 = Button(self,text="Maker",
            command=lambda: controller.show_frame(MakerPage))
+        button1.pack()
         
+        button2 = Button(self,text="Planner",
+            command=lambda: controller.show_frame(PlannerPage))
+        button2.pack()
+            
+        button3 = Button(self,text="Profiles",
+            command=lambda: controller.show_frame(ProfilePage))
+        button3.pack(side=TOP)
         
+        button4 = Button(self,text="Quit",
+            command=QUIT)
+        button4.pack(side=BOTTOM)
         
 class MakerPage(Frame):
     def __init__(self,parent,controller):
@@ -47,8 +58,31 @@ class MakerPage(Frame):
         label = Label(self,text='Maker Page',font=LARGE_FONT)
         label.pack(padx=10,pady=10)
        
-        #self.newButton = Button(LanguageMakerApp.frames[makerPage],text="new")
-        
+        homeButton = Button(self,text="Home",
+            command=lambda:controller.show_frame(HomePage))
+        homeButton.pack()
+
+class ProfilePage(Frame):
+    def __init__(self,parent,controller):
+        Frame.__init__(self,parent)
+        label = Label(self,text='Profiles',font=LARGE_FONT)
+        label.pack(padx=10,pady=10)
+       
+        homeButton = Button(self,text="Home",
+            command=lambda:controller.show_frame(HomePage))
+        homeButton.pack()
+
+class PlannerPage(Frame):
+    def __init__(self,parent,controller):
+        Frame.__init__(self,parent)
+        label = Label(self,text='Planner',font=LARGE_FONT)
+        label.pack(padx=10,pady=10)
+       
+        homeButton = Button(self,text="Home",
+            command=lambda:controller.show_frame(HomePage))
+        homeButton.pack()
+
+
 app = Tk()
 LanguageMakerApp = LanguageMakerApp(app)
 app.mainloop()
