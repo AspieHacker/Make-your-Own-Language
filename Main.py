@@ -9,9 +9,11 @@ class LanguageMakerApp(tk.Tk):
                 
         main = tk.Frame(master) 
         main.pack(side="top",fill="both",expand=True)
-        
         main.grid_rowconfigure(0,weight=1)
         main.grid_columnconfigure(0,weight=1)
+
+        menu = tk.Menu(master)
+       
         
         self.frames = {}
         
@@ -35,7 +37,7 @@ class HomePage(tk.Frame):
             
         button3 = ttk.Button(self,text="Profiles",
             command=lambda: controller.show_frame(ProfilePage))
-        button3.pack()
+        button3.pack(side='left')
         
         button1 = ttk.Button(self,text="Maker",
            command=lambda: controller.show_frame(MakerPage))
@@ -75,7 +77,7 @@ class PlannerPage(tk.Frame):
             command=lambda:controller.show_frame(HomePage))
         homeButton.pack()
 
-
-app = tk.Tk()
+app.config(menu=menu)
 LanguageMakerApp = LanguageMakerApp(app)
+app = tk.Tk()
 app.mainloop()
