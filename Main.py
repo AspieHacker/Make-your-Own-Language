@@ -1,13 +1,13 @@
-from Tkinter import *
-from Tkinter.ttk import *
+import tkinter as tk
+from tkinter import ttk
 
 LARGE_FONT=("Calibri",12)
 
-class LanguageMakerApp:
+class LanguageMakerApp(tk.Tk):
     
     def __init__(self, master):
                 
-        main = Frame(master) 
+        main = tk.Frame(master) 
         main.pack(side="top",fill="both",expand=True)
         
         main.grid_rowconfigure(0,weight=1)
@@ -27,55 +27,55 @@ class LanguageMakerApp:
         frame.tkraise()
             
         
-class HomePage(Frame):
+class HomePage(tk.Frame):
     def __init__(self,parent,controller):
-        Frame.__init__(self,parent)
-        label = Label(self,text="Home Page",font=LARGE_FONT)
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text="Home Page",font=LARGE_FONT)
         label.pack(padx=10, pady=10)       
             
-        button3 = Button(self,text="Profiles",
+        button3 = ttk.Button(self,text="Profiles",
             command=lambda: controller.show_frame(ProfilePage))
         button3.pack()
         
-        button1 = Button(self,text="Maker",
+        button1 = ttk.Button(self,text="Maker",
            command=lambda: controller.show_frame(MakerPage))
         button1.pack()
         
-        button2 = Button(self,text="Planner",
+        button2 = ttk.Button(self,text="Planner",
             command=lambda: controller.show_frame(PlannerPage))
         button2.pack()
         
-class MakerPage(Frame):
+class MakerPage(tk.Frame):
     def __init__(self,parent,controller):
-        Frame.__init__(self,parent)
-        label = Label(self,text='Maker Page',font=LARGE_FONT)
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text='Maker Page',font=LARGE_FONT)
         label.pack(padx=10,pady=10)
        
-        homeButton = Button(self,text="Home",
+        homeButton = tk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
         homeButton.pack()
 
-class ProfilePage(Frame):
+class ProfilePage(tk.Frame):
     def __init__(self,parent,controller):
-        Frame.__init__(self,parent)
-        label = Label(self,text='Profiles',font=LARGE_FONT)
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text='Profiles',font=LARGE_FONT)
         label.pack(padx=10,pady=10)
        
-        homeButton = Button(self,text="Home",
+        homeButton = tk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
         homeButton.pack()
 
-class PlannerPage(Frame):
+class PlannerPage(tk.Frame):
     def __init__(self,parent,controller):
-        Frame.__init__(self,parent)
-        label = Label(self,text='Planner',font=LARGE_FONT)
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text='Planner',font=LARGE_FONT)
         label.pack(padx=10,pady=10)
        
-        homeButton = Button(self,text="Home",
+        homeButton = tk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
         homeButton.pack()
 
 
-app = Tk()
+app = tk.Tk()
 LanguageMakerApp = LanguageMakerApp(app)
 app.mainloop()
