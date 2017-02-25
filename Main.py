@@ -12,8 +12,6 @@ class LanguageMakerApp(tk.Tk):
         main.grid_rowconfigure(0,weight=1)
         main.grid_columnconfigure(0,weight=1)
 
-        menu = tk.Menu(master)
-       
         
         self.frames = {}
         
@@ -32,52 +30,50 @@ class LanguageMakerApp(tk.Tk):
 class HomePage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
-        label = tk.Label(self,text="Home Page",font=LARGE_FONT)
-        label.pack(padx=10, pady=10)       
+        label = ttk.Label(self,text="Home Page",font=LARGE_FONT)
+        label.grid(row=0,column=1,sticky='nsew')       
             
         button3 = ttk.Button(self,text="Profiles",
             command=lambda: controller.show_frame(ProfilePage))
-        button3.pack(side='left')
+        button3.grid(row=1,column=0)
         
         button1 = ttk.Button(self,text="Maker",
            command=lambda: controller.show_frame(MakerPage))
-        button1.pack()
+        button1.grid(row=2,column=0)
         
         button2 = ttk.Button(self,text="Planner",
             command=lambda: controller.show_frame(PlannerPage))
-        button2.pack()
+        button2.grid(row=3,column=0)
         
 class MakerPage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
-        label = tk.Label(self,text='Maker Page',font=LARGE_FONT)
-        label.pack(padx=10,pady=10)
+        label = ttk.Label(self,text='Maker Page',font=LARGE_FONT)
+        label.grid(row=0,column=1,sticky='nsew')
        
-        homeButton = tk.Button(self,text="Home",
+        homeButton = ttk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
-        homeButton.pack()
+        homeButton.grid(row=10,column=10,sticky='se')
 
 class ProfilePage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
-        label = tk.Label(self,text='Profiles',font=LARGE_FONT)
-        label.pack(padx=10,pady=10)
+        label = ttk.Label(self,text='Profiles',font=LARGE_FONT)
+        label.grid(row=0,column=1,sticky='nsew')
        
-        homeButton = tk.Button(self,text="Home",
+        homeButton = ttk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
-        homeButton.pack()
+        homeButton.grid(row=10,column=10,sticky='se')
 
 class PlannerPage(tk.Frame):
     def __init__(self,parent,controller):
         tk.Frame.__init__(self,parent)
-        label = tk.Label(self,text='Planner',font=LARGE_FONT)
-        label.pack(padx=10,pady=10)
+        label = ttk.Label(self,text='Planner',font=LARGE_FONT)
+        label.grid(row=0,column=1,sticky='nsew')
        
-        homeButton = tk.Button(self,text="Home",
+        homeButton = ttk.Button(self,text="Home",
             command=lambda:controller.show_frame(HomePage))
-        homeButton.pack()
-
-app.config(menu=menu)
-LanguageMakerApp = LanguageMakerApp(app)
+        homeButton.grid(row=10,column=10,sticky='se')
 app = tk.Tk()
+LanguageMakerApp = LanguageMakerApp(app)
 app.mainloop()
