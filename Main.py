@@ -1,9 +1,7 @@
 from Tkinter import *
+from Tkinter.ttk import *
 
 LARGE_FONT=("Calibri",12)
-
-
-frames = {}
 
 class LanguageMakerApp:
     
