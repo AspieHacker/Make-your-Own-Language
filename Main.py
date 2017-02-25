@@ -33,15 +33,15 @@ class HomePage(Frame):
         label = Label(self,text="Home Page",font=LARGE_FONT)
         label.pack(padx=10, pady=10)       
             
-        button3 = Button(text="Profiles",
+        button3 = Button(self,text="Profiles",
             command=lambda: controller.show_frame(ProfilePage))
         button3.pack()
         
-        button1 = Button(text="Maker",
+        button1 = Button(self,text="Maker",
            command=lambda: controller.show_frame(MakerPage))
         button1.pack()
         
-        button2 = Button(text="Planner",
+        button2 = Button(self,text="Planner",
             command=lambda: controller.show_frame(PlannerPage))
         button2.pack()
         
