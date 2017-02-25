@@ -5,10 +5,10 @@ import tkSimpleDialog
 
 class Window:
     def __init__(self, master):
-        self.windowFrame = __init__.Frame(master, width="500", height="600")
+        #self.windowFrame = __init__.Frame(master, width="500", height="600")
+        windowFrame = Frame(master, width="500", height="600")
+        windowFrame.pack()
         
-        def Button(self, master):
-            self.submitButton = button.Submit(master, bg="",)
         
         
         
