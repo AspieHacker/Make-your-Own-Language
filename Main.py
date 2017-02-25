@@ -17,29 +17,17 @@ class LanguageMakerApp:
         
         self.frames = {}
         
-        homeFrame = HomePage(main,self)
-        self.frames[HomePage] = homeFrame
-        homeFrame.grid(row=0,column=0,sticky="nsew")
+        for F in (startPage,PageOne,PageTwo):
+            frame = F(main,self)
+            self.frames[F] = frame
+            frame.grid(row=0,column=0,sticky="nsew")
         self.show_frame(HomePage)
         
-        #makerFrame = MakerPage(main,self)
-        #self.frames[MakerPage] = makerFrame
-        #makerFrame.grid(row=0,column=1,sticky="nsew")
-        #self.show_frame(MakerPage)
     
-        
     def show_frame(self,main):
         frame = self.frames[main]
         frame.tkraise()
             
-    def hide_frame(self,main):
-        frame = self.frames[main]
-        frame.tkhide()
-    def hide_show_frame(self,hide,show):
-        hideFrame = self.frames[hide]
-        showFrame = self.frames[show]
-        hideFrame.tkhide()
-        showFrame.tkraise()
         
 class HomePage(Frame):
     def __init__(self,parent,controller):
@@ -48,15 +36,16 @@ class HomePage(Frame):
         label.pack(padx=10, pady=10)
         
         
-        #self.makerButton = Button(LanguageMakerApp.__init__.homeFrame,text="Maker",
-           # command=hide_show_frame(self,homePage,makerPage))
+        button1 = Button(self,text="Maker",
+           command=lambda: controller.show_frame(MakerPage))
         
         
-#class MakerPage(Frame):
-#    def __init__(self,parent,controller):
-#        Frame.__init__(self,parent)
-  #      label = Label(self,text='Maker Page',font=LARGE_FONT)
-   #     label.pack(padx=10,pady=10)
+        
+class MakerPage(Frame):
+    def __init__(self,parent,controller):
+        Frame.__init__(self,parent)
+        label = Label(self,text='Maker Page',font=LARGE_FONT)
+        label.pack(padx=10,pady=10)
        
         #self.newButton = Button(LanguageMakerApp.frames[makerPage],text="new")
         
